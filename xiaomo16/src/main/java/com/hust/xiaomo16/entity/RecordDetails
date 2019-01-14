@@ -1,0 +1,8 @@
+ Public class RecordDetails{
+		private Integer chatId ; 
+        private String userID;
+        private Date chatTime;
+        private String chatContent;
+        private Integer isRobot;
+		private Integer chatGrade;
+}
