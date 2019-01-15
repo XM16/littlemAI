@@ -1,9 +1,9 @@
-package com.example.demo.service.impl;
+package com.hust.xiaomo16.service.impl;
 
-import com.example.demo.dataobject.ProductInfo;
-import com.example.demo.enums.ProductStatusEnum;
-import com.example.demo.repository.ProductInfoRepository;
-import com.example.demo.service.ProductService;
+import com.hust.xiaomo16.entity.ProductInfo;
+import com.hust.xiaomo16.enums.ProductStatusEnum;
+import com.hust.xiaomo16.repository.ProductInfoRepository;
+import com.hust.xiaomo16.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
