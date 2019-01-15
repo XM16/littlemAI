@@ -32,11 +32,8 @@ public class OrderMaster {
     /** 买家手机号. */
     private String buyerPhone;
 
-    /** 买家地址. */
-    private String buyerAddress;
-
     /** 买家UserId. */
-    private String buyerUserId;
+    private String buyerUserid;
 
     /** 订单总金额. */
     private BigDecimal orderAmount;

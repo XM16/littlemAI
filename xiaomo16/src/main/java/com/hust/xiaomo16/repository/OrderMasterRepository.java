@@ -13,5 +13,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  **/
 
 public interface OrderMasterRepository extends JpaRepository<OrderMaster,String> {
-    Page<OrderMaster> findByBuyerUserId(String buyerOpenid, Pageable pageable);
+    Page<OrderMaster> findByBuyerUserid(String buyerUserid, Pageable pageable);
 }

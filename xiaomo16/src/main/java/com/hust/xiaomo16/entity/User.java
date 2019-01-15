@@ -1,6 +1,7 @@
 package com.hust.xiaomo16.entity;
 
-import com.hust.xiaomo16.utils.KeyUtils;
+import com.hust.xiaomo16.utils.KeyUtil;
+import com.sun.org.apache.xml.internal.security.keys.KeyUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ public class User {
     }
 
     public void setUserID() {
-        UserID = KeyUtils.genUniqueKey();
+        UserID = KeyUtil.genUniqueKey();
     }
 
     public String getUsername() {
