@@ -1,4 +1,4 @@
-package com.example.demo.dataobject;
+package com.hust.xiaomo16.entity;
 
 import lombok.Data;
 

@@ -1,6 +1,7 @@
-package com.example.demo.utils;
+package com.hust.xiaomo16.utils;
 
-import com.example.demo.VO.ResultVO;
+
+import com.hust.xiaomo16.VO.ResultVO;
 
 public class ResultVOUntil {
     public static ResultVO success(Object object)
