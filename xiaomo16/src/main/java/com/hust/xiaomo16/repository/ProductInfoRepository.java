@@ -1,6 +1,7 @@
-package com.example.demo.repository;
+package com.hust.xiaomo16.repository;
 
-import com.example.demo.dataobject.ProductInfo;
+
+import com.hust.xiaomo16.entity.ProductInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

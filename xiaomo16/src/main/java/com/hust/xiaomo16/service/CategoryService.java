@@ -1,6 +1,7 @@
-package com.example.demo.service;
+package com.hust.xiaomo16.service;
 
-import com.example.demo.dataobject.ProductCategory;
+
+import com.hust.xiaomo16.entity.ProductCategory;
 
 import java.util.List;
 

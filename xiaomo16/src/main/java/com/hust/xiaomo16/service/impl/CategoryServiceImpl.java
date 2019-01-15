@@ -1,8 +1,8 @@
-package com.example.demo.service.impl;
+package com.hust.xiaomo16.service.impl;
 
-import com.example.demo.dataobject.ProductCategory;
-import com.example.demo.repository.ProductCategoryRepository;
-import com.example.demo.service.CategoryService;
+import com.hust.xiaomo16.entity.ProductCategory;
+import com.hust.xiaomo16.repository.ProductCategoryRepository;
+import com.hust.xiaomo16.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

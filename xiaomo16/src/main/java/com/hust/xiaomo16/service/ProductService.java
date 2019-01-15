@@ -1,6 +1,7 @@
-package com.example.demo.service;
+package com.hust.xiaomo16.service;
 
-import com.example.demo.dataobject.ProductInfo;
+
+import com.hust.xiaomo16.entity.ProductInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
