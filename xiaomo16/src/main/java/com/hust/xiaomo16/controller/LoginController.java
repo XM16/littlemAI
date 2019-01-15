@@ -1,10 +1,9 @@
-package com.test2.demo.controller;
+package com.hust.xiaomo16.controller;
 
-import com.test2.demo.entities.User;
-import com.test2.demo.service.UserService;
+import com.hust.xiaomo16.entity.User;
+import com.hust.xiaomo16.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
