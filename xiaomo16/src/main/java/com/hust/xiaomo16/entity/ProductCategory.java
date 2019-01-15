@@ -1,4 +1,4 @@
-package com.example.demo.dataobject;
+package com.hust.xiaomo16.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
@@ -6,13 +6,10 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
-
 @Entity
 @DynamicUpdate
 @Data
 public class ProductCategory {
-
     //类目id
     @Id
     @GeneratedValue
@@ -30,5 +27,4 @@ public class ProductCategory {
         this.categoryName = categoryName;
         this.categoryType = categoryType;
     }
-
 }
