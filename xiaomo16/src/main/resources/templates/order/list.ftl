@@ -33,8 +33,12 @@
                             <td>${orderDTO.orderStatus}</td>
                             <td>${orderDTO.payStatus}</td>
                             <td>${orderDTO.createTime}</td>
-                            <td>详情</td>
-                            <td>取消</td>
+                            <td><a href="detail?orderId=${orderDTO.orderId}">详情</a></td>
+                            <td>
+                                <#if orderDTO.getOrderStatusEnum().message == "新订单">
+                                    <a href="cancel?orderId=${orderDTO.orderId}">取消</a>
+                                </#if>
+                            </td>
                         </tr>
                         </#list>
                 </tbody>
