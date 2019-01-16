@@ -1,15 +1,11 @@
 <html>
-<#--<#include "../common/header.ftl">-->
-<head>
-    <meta charset ="utf-8">
-    <title>卖家查看订单详情</title>
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<#include "../common/header.ftl">
+
 <body>
 <div id="wrapper" class="toggled">
 
 <#--边栏sidebar-->
-    <#--<#include "../common/nav.ftl">-->
+    <#include "../common/nav.ftl">
 
 
 <#--主要内容content-->
