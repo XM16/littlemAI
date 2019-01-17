@@ -28,7 +28,7 @@ public class OrderForm {
 
 
     /**
-     * 买家userId
+     * 买家userid
      */
     @NotEmpty(message = "userId必填")
     private String userId;

@@ -1,12 +1,14 @@
 package com.hust.xiaomo16.VO;
 
+import lombok.Data;
+
 /**
  * @program: xiaomo16
  * @description: http请求返回的最外层对象
  * @author: Boon Guan
  * @create: 2019-01-14 15:36
  **/
-
+@Data
 public class ResultVO<T> {
 
     /** 错误码. */

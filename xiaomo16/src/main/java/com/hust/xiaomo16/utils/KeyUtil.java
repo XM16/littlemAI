@@ -9,7 +9,7 @@ import java.util.Random;
  * @create: 2019-01-14 15:40
  **/
 
-public class KeyUtils {
+public class KeyUtil {
 
     /**
      * 生成唯一的主键
