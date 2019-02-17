@@ -11,8 +11,8 @@ public interface UserService {
     /**注销用户*/
     void delete(String username);
 
-    /**查询用户列表*/
-    List<User> findUserList();
+//    /**查询用户列表*/
+//    List<User> findUserList();
 
     /**更改用户密码*/
     void update(User user);

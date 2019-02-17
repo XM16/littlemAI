@@ -8,6 +8,24 @@
     <#include "../common/nav.ftl">
 
 <#--主要内容content-->
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <form class="form-search" action="detail" method="get" target="_blank">
+                    <input class="input-medium search-query" type="text" name="orderId"  placeholder="请输入订单号"/>
+                    <button type="submit" class="btn">查询</button>
+                </form>
+            </div>
+        </div>
+    </div>
+                <#--<form class="form-inline" role="search" action="detail" method="get" target="_blank">-->
+                    <#--<div class="form-group">-->
+                        <#--<input name="orderId" class="form-control mr-sm-2" type="text" placeholder="请输入订单号">-->
+                    <#--</div>-->
+                    <#--<button class="btn my-2 my-sm-0" type="submit" style="background:none; margin-left:-3rem; color:#ff9d00;" ><i class="fa fa-search" ></i></button>-->
+                <#--</form>-->
+
+
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row clearfix">

@@ -1,18 +1,22 @@
 package com.hust.xiaomo16.controller;
 
+import com.hust.xiaomo16.converter.OrderForm2OrderDTOConverter;
 import com.hust.xiaomo16.dto.OrderDTO;
 import com.hust.xiaomo16.enums.ResultEnum;
 import com.hust.xiaomo16.exception.MyException;
+import com.hust.xiaomo16.form.OrderForm;
 import com.hust.xiaomo16.service.OrderService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -47,6 +51,42 @@ public class SellerOrderController {
 //      orderDTOPage.getTotalPages();
         return new ModelAndView("order/list", map);
     }
+    /**
+    * @Description:  管理员添加订单
+    * @Param:
+    * @return:
+    */
+    @GetMapping("/addPage")
+    public ModelAndView addPage(){
+        return new ModelAndView("order/update");
+    }
+
+    @PostMapping("/add")
+    public ModelAndView add(@RequestParam(value = "name") String  name,
+                            @RequestParam(value = "phone") String phone,
+                            @RequestParam(value = "userId") String userId,
+                            @RequestParam(value = "items") String items,
+                             Map<String, Object> map) {
+        OrderForm orderForm = new OrderForm();
+        orderForm.setName(name);
+        orderForm.setPhone(phone);
+        orderForm.setUserId(userId);
+        orderForm.setItems(items);
+        OrderDTO orderDTO = OrderForm2OrderDTOConverter.convert(orderForm);
+
+        try {
+            orderDTO = orderService.create(orderDTO);
+        } catch (MyException e) {
+            log.error("【卖家端新增订单】发生异常{}", e);
+            map.put("msg", e.getMessage());
+            map.put("url", "/xiaomo/seller/order/list");
+            return new ModelAndView("common/error", map);
+        }
+//        map.put("orderDTO",orderDTO);
+        map.put("msg", ResultEnum.ORDER_ADD_SUCCESS.getMessage());
+        map.put("url", "/xiaomo/seller/order/list");
+        return new ModelAndView("common/success",map);
+    }
 
     @GetMapping("/cancel")
     public ModelAndView cancel(@RequestParam(value = "orderId") String orderId,
@@ -63,8 +103,8 @@ public class SellerOrderController {
         }
 
         map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
-        map.put("url", "/sell/seller/order/list");
-        return new ModelAndView("common/success");
+        map.put("url", "/xiaomo/seller/order/list");
+        return new ModelAndView("common/success",map);
     }
 
     @GetMapping("/detail")

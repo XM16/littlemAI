@@ -9,18 +9,18 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
-    private String UserID;
+    private String userId;
 
     private String username;
 
     private String password;
 
     public String getUserID() {
-        return UserID;
+        return userId;
     }
 
     public void setUserID() {
-        UserID = KeyUtil.genUniqueKey();
+        userId = KeyUtil.genUniqueKey();
     }
 
     public String getUsername() {
