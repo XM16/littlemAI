@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>修改</title>
+    <link rel="stylesheet" href="/css/updateStyle.css" type="text/css" />
+</head>
+<body>
+<div style="text-align:center;margin:20px auto;">
+    <b style="font-size:16px;">nmsl</b>
+</div>
+<div class="main-container">
+    <form method="post" action="/xiaomo/seller/order/add">
+        <div class="item_content">
+            <div class="label_content">订单id：</div>
+            <div class="input_content">
+                <input type="text" name="name" />
+            </div>
+        </div>
+        <div class="item_content">
+            <div class="label_content" >用户手机：</div>
+            <div class="input_content">
+                <input type="text" name="phone" />
+            </div>
+        </div>
+        <div class="item_content">
+            <div class="label_content">买家userId：</div>
+            <div class="input_content">
+                <input type="text" name="userId" />
+            </div>
+        </div>
+
+        <div class="item_content">
+            <div class="label_content">购物车：</div>
+            <div class="input_content">
+                <input type="text" name="items" />
+            </div>
+        </div>
+        <div class="item_content">
+            <input id = "submitBtn" type="submit" name="submit"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

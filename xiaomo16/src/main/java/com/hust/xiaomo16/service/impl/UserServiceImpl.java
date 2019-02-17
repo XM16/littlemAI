@@ -18,14 +18,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete(String UserId) {
-        userRepository.delete(Integer.valueOf(UserId));
+    public void delete(String username) {
+        userRepository.delete(username);
     }
 
-    @Override
-    public List<User> findUserList() {
-        return userRepository.findAll();
-    }
+//    @Override
+//    public List<User> findUserList() {
+//        return userRepository.findAll();
+//    }
 
     @Override
     public void update(User user) {
@@ -34,6 +34,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUser(String username) {
-        return userRepository.getOne(Integer.valueOf(username));
+        return userRepository.findOne(username);
     }
 }

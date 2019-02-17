@@ -13,16 +13,16 @@ import java.util.Map;
 public class RegisterController {
     @Autowired
     private UserService us;
-    @PostMapping(value="/user/register")
-    public String register(@RequestParam("username") String username,
-                           @RequestParam("password") String password,
-                           Map<String,Object> map){
-    User newUser=new User();
-    newUser.setUserID();
-    newUser.setUsername(username);
-    newUser.setPassword(password);
-    us.register(newUser);
-    return "login";
-}
+//    @PostMapping(value="/user/register")
+//    public String register(@RequestParam("username") String username,
+//                           @RequestParam("password") String password,
+//                           Map<String,Object> map){
+//    User newUser=new User();
+//    newUser.setUserID();
+//    newUser.setUsername(username);
+//    newUser.setPassword(password);
+//    us.register(newUser);
+//    return "login";
+//}
 
 }
