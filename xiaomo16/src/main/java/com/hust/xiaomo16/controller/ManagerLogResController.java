@@ -7,6 +7,7 @@ import com.hust.xiaomo16.service.ManagerService;
 import com.hust.xiaomo16.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,52 +22,68 @@ import java.util.Map;
  * @author: Boon Guan
  * @create: 2019-01-24 13:45
  **/
-@RestController
+@Controller
 @RequestMapping("/manager")
 @Slf4j
 public class ManagerLogResController {
     @Autowired
     private ManagerService managerService;
 
+    @RequestMapping("/houtai")
+    public String toManager(){
+
+        return "manager/main";
+
+    }
     @GetMapping("/login")
     public ModelAndView logResPage(){
         return new ModelAndView("common/login");
     }
 
-    @PostMapping(value = "login")
-    public String login(@RequestParam("username") String mUsername,
-                        @RequestParam("password") String mPassword,
+    @PostMapping(value = "/login")
+    public String login(@RequestParam("musername") String mUsername,
+                        @RequestParam("mpassword") String mPassword,
                         Map<String, Object> map, HttpSession session) {
         ManagerInfo manager = managerService.findManager(mUsername);
+        System.out.println(mUsername);
         if (manager == null){
             map.put("msg","用户名不存在");
+            if(mUsername=="jack")
+            System.out.println("ok");
             return "login";
         }
         if (manager.getMPassword().equals(mPassword)) {
             session.setAttribute("loginUser", mUsername);
-            return "redirect:/success";
+            return "redirect:/manager/houtai";
         }
-        /*if(!StringUtils.isEmpty(username)&&"123456".equals(password)){
-            session.setAttribute("loginUser",username);
-            return "redirect:/main.html";
-        }*/
+
         else {
             map.put("msg", "管理员密码错误");
             return "login";
         }
     }
+
     @PostMapping(value = "/register")
-    public String register(@RequestParam("username") String mUsername,
-                           @RequestParam("password") String mPassword,
+    public ModelAndView register(@RequestParam("musername") String mUsername,
+                           @RequestParam("mpassword") String mPassword,
                            Map<String, Object> map) {
         ManagerInfo manager = new ManagerInfo();
         manager.setManagerId(KeyUtil.genUniqueKey());
         manager.setMUsername(mUsername);
         manager.setMPassword(mPassword);
-        ManagerInfo managerInfo = managerService.register(manager);
-        if(managerInfo == null)
-            map.put("msg","管理员注册失败");
-        return "login";
+//        ManagerInfo managerInfo = managerService.register(manager);
+        try{
+            managerService.register(manager);
+        } catch (MyException e) {
+            log.error("【管理员注册】发生异常{}", e);
+            map.put("msg", e.getMessage());
+            map.put("url", "/xiaomo/manager/login");
+            return new ModelAndView("common/error", map);
+        }
+        map.put("msg", ResultEnum.REGISTER_SUCCESS.getMessage());
+        map.put("url", "/xiaomo/manager/login");
+        return new ModelAndView("common/success",map);
+
     }
 
     @GetMapping("/list")

@@ -43,6 +43,6 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     public ManagerInfo findManager(String mUsername) {
-        return repository.findOne(mUsername);
+        return repository.findManagerByMuserame(mUsername);
     }
 }

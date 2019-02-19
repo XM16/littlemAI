@@ -1,6 +1,7 @@
 package com.hust.xiaomo16.service.impl;
 
-import com.hust.xiaomo16.entity.User;
+
+import com.hust.xiaomo16.entity.UserInfo;
 import com.hust.xiaomo16.repository.UserRepository;
 import com.hust.xiaomo16.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
     @Override
-    public void register(User user) {
-        userRepository.save(user);
+    public UserInfo register(UserInfo user) {
+        return userRepository.save(user);
     }
 
     @Override
@@ -28,12 +29,12 @@ public class UserServiceImpl implements UserService {
 //    }
 
     @Override
-    public void update(User user) {
+    public void update(UserInfo user) {
              userRepository.save(user);
     }
 
     @Override
-    public User findUser(String username) {
-        return userRepository.findOne(username);
+    public UserInfo findUser(String username) {
+        return userRepository.findUserByUserame(username);
     }
 }

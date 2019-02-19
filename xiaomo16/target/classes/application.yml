@@ -4,6 +4,9 @@ spring:
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/xiaoMo16DB?characterEncoding=utf-8&useSSL=false
+
+  thymeleaf:
+    mode: LEGACYHTML5
   jpa:
     show-sql: true
   jackson:

@@ -8,10 +8,13 @@ import com.hust.xiaomo16.entity.ProductInfo;
 import com.hust.xiaomo16.service.CategoryService;
 import com.hust.xiaomo16.service.ProductService;
 import com.hust.xiaomo16.utils.ResultVOUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +26,9 @@ import java.util.stream.Collectors;
  * @author: Boon Guan
  * @create: 2019-02-16 17:31
  **/
-
+@RestController
+@RequestMapping("/buyer/product")
+@Slf4j
 public class BuyerProductController {
     @Autowired
     private ProductService productService;
