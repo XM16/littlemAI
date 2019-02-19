@@ -30,7 +30,7 @@ public class ManagerInfoRepositoryTest {
 
     @Test
     public void findByManagerId() {
-        ManagerInfo managerInfo = repository.findByManagerId("123");
+        ManagerInfo managerInfo = repository.findManagerByMuserame("123");
         Assert.assertNotNull(managerInfo);
     }
 }

@@ -1,12 +1,13 @@
 package com.hust.xiaomo16.service;
 
-import com.hust.xiaomo16.entity.User;
+
+import com.hust.xiaomo16.entity.UserInfo;
 
 import java.util.List;
 
 public interface UserService {
     /**新用户注册*/
-    void register(User user);
+    UserInfo register(UserInfo user);
 
     /**注销用户*/
     void delete(String username);
@@ -15,8 +16,8 @@ public interface UserService {
 //    List<User> findUserList();
 
     /**更改用户密码*/
-    void update(User user);
+    void update(UserInfo user);
 
     /**查询单个用户*/
-    User findUser(String username);
+    UserInfo findUser(String username);
 }
