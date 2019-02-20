@@ -20,4 +20,7 @@ public interface ReservationService {
     /**更改排队状态*/
     void updateStatus(ReservationDetail rd);
 
+    /**查询预约id*/
+    ReservationDetail findReservation(String reservaId);
+
 }

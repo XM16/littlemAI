@@ -48,6 +48,9 @@ public enum ResultEnum {
     LOGOUT_SUCCESS(26, "登出成功"),
 
     REGISTER_SUCCESS(27,"注册成功"),
+
+    BUY_SUCCESS(28,"购买成功"),
+
     ;
 
     private Integer code;

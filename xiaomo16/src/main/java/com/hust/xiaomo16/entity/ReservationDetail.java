@@ -8,11 +8,11 @@ import java.util.Date;
 
 public class ReservationDetail {
     @Id
-    private  String ReservaID;
+    private  String reservaId;
 
-    private String UserID;
+    private String userId;
 
-    private Date reserTime;
+    private Date reservaTime;
 
     private Integer tableType;
 
@@ -20,16 +20,16 @@ public class ReservationDetail {
 
     private String status;
 
-    public String getReservaID() {
-        return ReservaID;
+    public String getReservaId() {
+        return reservaId;
     }
 
-    public String getUserID() {
-        return UserID;
+    public String getUserId() {
+        return userId;
     }
 
-    public Date getReserTime() {
-        return reserTime;
+    public Date getReservaTime() {
+        return reservaTime;
     }
 
     public Integer getTableType() {
@@ -44,16 +44,16 @@ public class ReservationDetail {
         return status;
     }
 
-    public void setReservaID(String reservaID) {
-        ReservaID = reservaID;
+    public void setReservaId(String reservaID) {
+        reservaId = reservaID;
     }
 
-    public void setUserID(String userID) {
-        UserID = userID;
+    public void setUserId(String userID) {
+        userId = userID;
     }
 
-    public void setReserTime(Date reserTime) {
-        this.reserTime = reserTime;
+    public void setReservaTime(Date reserTime) {
+        this.reservaTime = reserTime;
     }
 
     public void setTableType(Integer tableType) {
