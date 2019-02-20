@@ -20,7 +20,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void cancel(String userID) {
-            reservationRepository.delete(Integer.valueOf(userID));
+            reservationRepository.deleteReservationDetailByUserId(userID);
     }
 
     @Override
@@ -44,4 +44,9 @@ public class ReservationServiceImpl implements ReservationService {
     public void updateStatus(ReservationDetail rd) {
                    reservationRepository.save(rd);
     }
+    @Override
+    public ReservationDetail findReservation(String reservaId) {
+      return  reservationRepository.findReservationDetailByReservaId(reservaId);
+    }
+
 }
