@@ -65,8 +65,8 @@ public class ReservationController {
     public ModelAndView update(Model model, @PathVariable("id") Integer id, Map<String,Object> map){
          rs.cancel(Integer.toString(id));
          List<ReservationDetail> rds=rs.findList();
-        map.put("reservationList",rds);
-        return new ModelAndView("reservation/list",map);
+         map.put("reservationList",rds);
+         return new ModelAndView("reservation/list",map);
     }
     /**删除预约*/
     @GetMapping("/delete")
@@ -87,24 +87,24 @@ public class ReservationController {
         }
         return new ModelAndView("reservation/index",map);
     }
-/**保存更改*/
-@PostMapping(value = "/save")
-public String save(@RequestParam("reservaId") String reservaId,
-                    @RequestParam("userId") String userId,
-                   @RequestParam("reserTime") String reserTime,
-                   @RequestParam("queNum") String queNum,
-                   @RequestParam("status") String status,
-                   @RequestParam("tableType") String tableType,
-                    Map<String, Object> map) throws Exception{
-ReservationDetail rd=new ReservationDetail();
-    SimpleDateFormat  sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-rd.setReservaTime(sdf.parse(reserTime));
-rd.setQueNum(Integer.valueOf(queNum));
-rd.setStatus(status);
-rd.setUserId(userId);
-rd.setTableType(Integer.valueOf(tableType));
-rd.setReservaId(reservaId);
-rs.updateStatus(rd);
-return "redirect:/reservation/getList";
-}
+    /**保存更改*/
+    @PostMapping(value = "/save")
+    public String save(@RequestParam("reservaId") String reservaId,
+                        @RequestParam("userId") String userId,
+                       @RequestParam("reserTime") String reserTime,
+                       @RequestParam("queNum") String queNum,
+                       @RequestParam("status") String status,
+                       @RequestParam("tableType") String tableType,
+                        Map<String, Object> map) throws Exception{
+        ReservationDetail rd=new ReservationDetail();
+            SimpleDateFormat  sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        rd.setReservaTime(sdf.parse(reserTime));
+        rd.setQueNum(Integer.valueOf(queNum));
+        rd.setStatus(status);
+        rd.setUserId(userId);
+        rd.setTableType(Integer.valueOf(tableType));
+        rd.setReservaId(reservaId);
+        rs.updateStatus(rd);
+        return "redirect:/reservation/getList";
+        }
 }

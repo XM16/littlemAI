@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Map;
 /**
  * @program: sell
@@ -41,7 +41,7 @@ public class UserLogResController {
     @RequestMapping("/chat")
     public String toChat(){
 
-        return "common/chat";
+        return "buyer/chat";
 
     }
 
@@ -69,10 +69,13 @@ public class UserLogResController {
                         @RequestParam("password") String password,
                         Map<String, Object> map, HttpSession session) {
         UserInfo u = us.findUser(username);
+        LinkedList<String> linkedList=new LinkedList();
+        linkedList.add("test");
         if (u.getPassword().equals(password)) {
             session.setAttribute("loginUser", username);
-          //  return "redirect:/user/chat";
-            return "redirect:/user/index";
+            session.setAttribute("linkedList",linkedList);
+            return "redirect:/user/chat";
+//            return "redirect:/user/index";
         }
         /*if(!StringUtils.isEmpty(username)&&"123456".equals(password)){
             session.setAttribute("loginUser",username);

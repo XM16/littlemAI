@@ -52,6 +52,7 @@ public class BuyController {
         OrderMaster orderMaster=new OrderMaster();
         ProductInfo productInfo=productService.findOne(productId);
         String orderId=KeyUtil.genUniqueKey();
+
         orderDetail.setDetailId(KeyUtil.genUniqueKey());
         orderDetail.setOrderId(orderId);
         orderDetail.setProductId(productId);
@@ -59,6 +60,7 @@ public class BuyController {
         orderDetail.setProductPrice(productInfo.getProductPrice());
         orderDetail.setProductIcon(productInfo.getProductIcon());
         orderDetail.setProductQuantity(1);
+
         orderMaster.setOrderAmount(productInfo.getProductPrice());
         orderMaster.setCreateTime(new Date());
         orderMaster.setUpdateTime(new Date());

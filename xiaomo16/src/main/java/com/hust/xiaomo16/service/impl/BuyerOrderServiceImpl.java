@@ -22,6 +22,7 @@ public class BuyerOrderServiceImpl implements BuyerOrderService {
     private OrderMasterRepository orderMasterRepository;
     @Autowired
     private ProductInfoRepository repository;
+
     @Override
     public void addOrderDetail(OrderDetail orderDetail) {
         orderDetailRepository.save(orderDetail);

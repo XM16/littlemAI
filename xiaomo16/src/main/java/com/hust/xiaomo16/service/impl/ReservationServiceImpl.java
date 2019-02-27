@@ -49,4 +49,15 @@ public class ReservationServiceImpl implements ReservationService {
       return  reservationRepository.findReservationDetailByReservaId(reservaId);
     }
 
+    @Override
+    public Integer findTheLast(Integer tableType) {
+        List<ReservationDetail> reservationDetails=reservationRepository.findListByTableType(tableType);
+        int len=reservationDetails.size();
+        int i;
+        for(i=len-1;i>=0;i--) {
+            if (reservationDetails.get(i).getStatus().equals("排队中"))
+                return reservationDetails.get(i).getQueNum();
+        }
+        return 0;
+    }
 }
