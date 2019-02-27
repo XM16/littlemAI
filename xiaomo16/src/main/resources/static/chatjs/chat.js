@@ -6,6 +6,7 @@ $('.conLeft li').on('click', function () {
 })
 $('.sendBtn').on('click', function () {
 	var news = $('#dope').val();
+    news=news.replace("\n","");
 	if (news == '') {
 		alert('不能为空');
 	} else {
@@ -22,8 +23,79 @@ $('.sendBtn').on('click', function () {
 		$('.RightCont').scrollTop($('.RightCont')[0].scrollHeight);
 
 	}
+	var d = {};
+	d.userId = 30;
+	d.userInput = news;
+	$.ajax({
+		url: "update",
+
+		data: JSON.stringify(d),
+		//type、contentType必填,指明传参方式
+
+		type: "POST",
+		contentType: "application/json;charset=utf-8",
+
+		success: function(response){
+			//前端调用成功后，可以处理后端传回的
+			if(response.success){
+				answers(response.message);
+				//alert(response.message);
+			}
+		},
+		error:function(){
+			alert("请求对象XMLHttpRequest: ");
+
+		}});
+
+
 })
 
+function send(event){
+    //如果按了回车键也发送信息
+    if(event.keyCode==13) {//键盘按下Enter键
+        var news = $('#dope').val();
+        news=news.replace("\n","");
+        if (news == '') {
+            alert('不能为空');
+        } else {
+            $('#dope').val('');
+            var str = '';
+            str += ' <li>' +
+                '<div class="nesHead"><img src="/xiaomo/images/tou.jpg" "/></div>' +
+                '<div class="news"><img class="jiao" src="/xiaomo/images/jiao.jpg" >' + news + '</div>' +
+                '</li> ';
+            $('.newsList').append(str);
+
+            Send(news);
+            $('.conLeft').find('li.bg').children('.liRight').children('.infor').text(news);
+            $('.RightCont').scrollTop($('.RightCont')[0].scrollHeight);
+
+        }
+        var d = {};
+        d.userId = 30;
+        d.userInput = news;
+        $.ajax({
+            url: "update",
+
+            data: JSON.stringify(d),
+            //type、contentType必填,指明传参方式
+
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+
+            success: function(response){
+                //前端调用成功后，可以处理后端传回的
+                if(response.success){
+                    answers(response.message);
+                    //alert(response.message);
+                }
+            },
+            error:function(){
+                alert("请求对象XMLHttpRequest: ");
+
+            }});
+    }
+}
 var xmlHttp
 
 function Send(news) {
@@ -77,7 +149,7 @@ function stateChanged() {
 		// var msg = eval('(' + xmlHttp.responseText + ')');
 		//document.getElementById("robot").innerHTML = msg;
 		var text = JSON.parse(xmlHttp.responseText).text;
-		answers(text);
+	//	answers(text);
 		//console.log(xmlHttp.responseText);
 	}
 }
@@ -143,7 +215,7 @@ $('.emjon li').on('click', function () {
 	var imgSrc = $(this).children('img').attr('src');
 	var str = "";
 	str += '<li>' +
-		'<div class="nesHead"><img src="images/tou.jpg"/></div>' +
+		'<div class="nesHead"><th:text="${session.loginUser}" /> <img src="images/tou.jpg"/></div>' +
 		'<div class="news"><img class="jiao" src="images/20170926103645_03_02.jpg" th:src="@{/images/20170926103645_03_02.jpg}"><img class="Expr" src="' + imgSrc + '"></div>' +
 		'</li>';
 	$('.newsList').append(str);

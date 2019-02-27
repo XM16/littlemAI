@@ -2,11 +2,13 @@ package com.hust.xiaomo16.entity;
 
 import com.hust.xiaomo16.utils.KeyUtil;
 import com.sun.org.apache.xml.internal.security.keys.KeyUtils;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+@Data
 public class User {
     @Id
     private String userId;

@@ -7,8 +7,7 @@
 <head>
   <title>餐厅</title>
   <meta charset="UTF-8">
-  
-    <script src="chatjs/jquery-1.11.1.js" type="text/javascript"></script>
+	<script src="chatjs/jquery-1.11.1.js" type="text/javascript"></script>
  <script src="chatjs/bootstrap.js" th:src="@{/chatjs/bootstrap.js}"></script>
  <link rel="stylesheet" type="text/css" href="chatcss/bootstrap.css" th:href="@{/static/chatcss/bootstrap.css}">
   <link rel="stylesheet" type="text/css" href="chatcss/qq.css" th:href="@{/chatcss/qq.css}"/>
@@ -21,7 +20,7 @@
 		<div class="headImg">
 			<img src="images/6.jpg" th:src="@{/images/6.jpg}"/>
 		</div>
-		<div class="internetName">好吃再来</div>
+		<div class="internetName">小莫餐厅</div>
 	</div>
 	<div class="context">
 		<div class="conLeft">
@@ -39,7 +38,7 @@
 		</div>
 		<div class="conRight">
 			<div class="Righthead">
-				<div class="headName">你</div>
+				<div class="headName">小莫</div>
 				<div class="headConfig">
 					<ul>
 						<li><img src="images/20170926103645_06.jpg" th:src="@{/images/20170926103645_06.jpg}"/></li>
@@ -75,20 +74,20 @@
 						
 					</ul>
 				</div>
-				<div class="footTop">
-					<ul>
-						<li><img src="images/20170926103645_31.jpg" th:src="@{/images/20170926103645_31.jpg}"/></li>
-						<li class="ExP"><img src="images/20170926103645_33.jpg" th:src="@{/images/20170926103645_33.jpg}"/></li>
-						<li><img src="images/20170926103645_35.jpg" th:src="@{/images/20170926103645_35.jpg}"/></li>
-						
-						<li><img src="images/20170926103645_37.jpg" th:src="@{/images/20170926103645_37.jpg}"/></li>
-						<li><img src="images/20170926103645_39.jpg" th:src="@{/images/20170926103645_39.jpg}"/></li>
-						<li><img src="images/20170926103645_41.jpg" alt=""  th:src="@{/images/20170926103645_39.jpg}"/></li>
-					
-					</ul>
-				</div>
+				<!--<div class="footTop">-->
+					<!--<ul>-->
+						<!--<li><img src="images/20170926103645_31.jpg" th:src="@{/images/20170926103645_31.jpg}"/></li>-->
+						<!--<li class="ExP"><img src="images/20170926103645_33.jpg" th:src="@{/images/20170926103645_33.jpg}"/></li>-->
+						<!--<li><img src="images/20170926103645_35.jpg" th:src="@{/images/20170926103645_35.jpg}"/></li>-->
+						<!---->
+						<!--<li><img src="images/20170926103645_37.jpg" th:src="@{/images/20170926103645_37.jpg}"/></li>-->
+						<!--<li><img src="images/20170926103645_39.jpg" th:src="@{/images/20170926103645_39.jpg}"/></li>-->
+						<!--<li><img src="images/20170926103645_41.jpg" alt=""  th:src="@{/images/20170926103645_39.jpg}"/></li>-->
+					<!---->
+					<!--</ul>-->
+				<!--</div>-->
 				<div class="inputBox">
-					<textarea id="dope" type="text" style="width: 99%;height: 75px; border: none;outline: none;" name="" rows="" cols="" ></textarea>
+					<textarea id="dope" type="text" style="width: 99%;height: 75px; border: none;outline: none;" name="" rows="" cols="" onkeypress="send(event)"></textarea>
 					<button class="sendBtn" >发送(s)</button>
 				</div>
 			</div>

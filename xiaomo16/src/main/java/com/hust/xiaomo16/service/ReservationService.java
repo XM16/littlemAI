@@ -23,4 +23,7 @@ public interface ReservationService {
     /**查询预约id*/
     ReservationDetail findReservation(String reservaId);
 
+    /**查询最后一位排队号码*/
+    Integer findTheLast(Integer tableType);
+
 }
